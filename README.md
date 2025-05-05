@@ -1,4 +1,4 @@
-#DICE GAME
+//DICE GAME
 
 
 
