@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin-top: 1rem;
+        }
+
+        body {
+            background-color: #34353e;
+            text-align: center;
+
+            height: 100vh;
+        }
+
+        h1 {
+            color: #44c497;
+            font-weight: bold;
+            font-size: 4rem;
+            font-family: cursive;
+            cursor: pointer;
+        }
+
+        .game {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .player1 {
+            margin: 3rem;
+        }
+
+        .player2 {
+            margin: 3rem;
+        }
+
+        p {
+            font-family: cursive;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #44c497;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Refresh Me</h1>
+    <div class="game">
+        <div class="player1">
+            <p>player1</p>
+            <img src="./images/dice6.png" alt="">
+        </div>
+        <div class="player2">
+            <p>player2</p>
+            <img src="./images/dice6.png" alt="">
+        </div>
+    </div>
+    <footer>
+        <p class="mt-1">@powered by shawcha</p>
+    </footer>
+    <script>
+        var images = ["./images/dice1.png", "./images/dice2.png", "./images/dice3.png", "./images/dice4.png",
+            "./images/dice5.png", "./images/dice6.png"
+        ];
+        var refresh = document.querySelector("h1");
+        var image1 = document.querySelector(".player1 img");
+        var image2 = document.querySelector(".player2 img");
+        refresh.addEventListener("click", function () {
+            var random1 = Math.floor(Math.random() * 6);
+            image1.setAttribute("src", images[random1]);
+            random2 = Math.floor(Math.random() * 6);
+            image2.setAttribute("src", images[random2]);
+            if (random1 > random2) {
+                refresh.innerHTML = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512' width='40' height='40' style='vertical-align: middle;'>
+<path d='M64 32C64 14.3 49.7 0 32 0S0 14.3 0 32L0 64 0 368 0 480c0 17.7 14.3 32 32 32s32-14.3 32-32l0-128 64.3-16.1c41.1-10.3 84.6-5.5 122.5 13.4c44.2 22.1 95.5 24.8 141.7 7.4l34.7-13c12.5-4.7 20.8-16.6 20.8-30l0-247.7c0-23-24.2-38-44.8-27.7l-9.6 4.8c-46.3 23.2-100.8 23.2-147.1 0c-35.1-17.6-75.4-22-113.5-12.5L64 48l0-16z'/>
+</svg> Player 1 Wins`;
+            }
+            else if(random1==random2)
+            {
+                refresh.innerHTML = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512' width='40' height='40' style='vertical-align: middle;'>
+<path d='M64 32C64 14.3 49.7 0 32 0S0 14.3 0 32L0 64 0 368 0 480c0 17.7 14.3 32 32 32s32-14.3 32-32l0-128 64.3-16.1c41.1-10.3 84.6-5.5 122.5 13.4c44.2 22.1 95.5 24.8 141.7 7.4l34.7-13c12.5-4.7 20.8-16.6 20.8-30l0-247.7c0-23-24.2-38-44.8-27.7l-9.6 4.8c-46.3 23.2-100.8 23.2-147.1 0c-35.1-17.6-75.4-22-113.5-12.5L64 48l0-16z'/>
+</svg> Both Wins`;
+            }
+           else{
+                refresh.innerHTML = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512' width='40' height='40' style='vertical-align: middle;'><path d='M64 32C64 14.3 49.7 0 32 0S0 14.3 0 32L0 64 0 368 0 480c0 17.7 14.3 32 32 32s32-14.3 32-32l0-128 64.3-16.1c41.1-10.3 84.6-5.5 122.5 13.4c44.2 22.1 95.5 24.8 141.7 7.4l34.7-13c12.5-4.7 20.8-16.6 20.8-30l0-247.7c0-23-24.2-38-44.8-27.7l-9.6 4.8c-46.3 23.2-100.8 23.2-147.1 0c-35.1-17.6-75.4-22-113.5-12.5L64 48l0-16z'/></svg> Player 2 Wins";
+            }
+            setTimeout(()=>{
+            refresh.innerHTML="Refresh Me";
+            image1.setAttribute("src",images[5]);
+            image2.setAttribute("src",images[5]);
+        },3000);
+        });
+   
+    </script>
+</body>
+
+</html>
